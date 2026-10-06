@@ -32,6 +32,17 @@ public class User{
     @Column(name = "created_date", updatable = false)
     private LocalDateTime  $created_date = LocalDateTime.now();
 
+    public User(){
+
+    }
+
+    public User(int $id_user,String $username,String $email_user,Role $user_role,LocalDateTime $created_date){
+        this.$id_user = $id_user;
+        this.$username = $username;
+        this.$email_user = $email_user;
+        this.$user_role = $user_role;
+        this.$created_date = $created_date;
+    }
 
     //Getters and Setters:
 
