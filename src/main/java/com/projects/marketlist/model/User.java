@@ -70,4 +70,6 @@ public class User{
 
     public LocalDateTime get$Created_Date(){return this.$created_date;}
     public void set$Created_Date(LocalDateTime $created_date){this.$created_date = $created_date;}
+
+    public 
 }
