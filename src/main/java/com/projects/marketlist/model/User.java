@@ -5,8 +5,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "user")
@@ -32,8 +35,11 @@ public class User{
     @Column(name = "created_date", updatable = false)
     private LocalDateTime  $created_date = LocalDateTime.now();
 
-    public User(){
+    @OneToMany(mappedBy = "$id_user")
+    private List<PurchaseList> $purchase_list;
 
+    public User(){
+        $purchase_list = new ArrayList<>();
     }
 
     public User(int $id_user,String $username,String $email_user,Role $user_role,LocalDateTime $created_date){
@@ -42,6 +48,7 @@ public class User{
         this.$email_user = $email_user;
         this.$user_role = $user_role;
         this.$created_date = $created_date;
+        $purchase_list = new ArrayList<>();
     }
 
     //Getters and Setters:
