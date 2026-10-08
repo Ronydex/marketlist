@@ -1,6 +1,8 @@
 package com.projects.marketlist.model;
 
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -35,6 +37,9 @@ public class PurchaseItem {
     @Column(name="amount", nullable = false)
     private int $amount;
 
+    @Column(name = "purchase_date", nullable = false)
+    private LocalDateTime $purchase_date = LocalDateTime.now();
+
     //Getters and Setters
 
     public int get$Id_Purchase(){return this.$id_purchase;}
@@ -58,4 +63,6 @@ public class PurchaseItem {
     public int get$Amount(){return this.$amount;}
     public void set$Amount(int $amount){this.$amount = $amount;}
 
+    public LocalDateTime get$Purchase_Date(){return this.$purchase_date;}
+    public void set$Purchase_Date(LocalDateTime $purchase_date){this.$purchase_date = $purchase_date;}
 }

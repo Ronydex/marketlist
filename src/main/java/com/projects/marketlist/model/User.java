@@ -1,5 +1,6 @@
 package com.projects.marketlist.model;
 
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -71,5 +72,5 @@ public class User{
     public LocalDateTime get$Created_Date(){return this.$created_date;}
     public void set$Created_Date(LocalDateTime $created_date){this.$created_date = $created_date;}
 
-    public 
+
 }
