@@ -9,6 +9,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Table;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 @Table(name="purchase_name")
@@ -18,9 +20,6 @@ public class PurchaseItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_purchase")
     private int $id_purchase;
-
-    @Column(name = "id_list")
-    private int $id_list;
 
     @Column(name = "purchase_name", nullable = false, length = 100)
     private String $purchase_name;
@@ -40,14 +39,15 @@ public class PurchaseItem {
     @Column(name = "purchase_date", nullable = false)
     private LocalDateTime $purchase_date = LocalDateTime.now();
 
+    @ManyToOne
+    @JoinColumn(name = "purchase_list")
+    private PurchaseList $purchase_list;
+
     //Getters and Setters
 
     public int get$Id_Purchase(){return this.$id_purchase;}
     public void set$Id_Purchase(int $id_purchase){this.$id_purchase = $id_purchase;}
-
-    public int get$Id_List(){return this.$id_list;}
-    public void set$Id_List(int $id_list){this.$id_list = $id_list;}
-
+ 
     public String get$Purchase_Name(){return this.$purchase_name;}
     public void set$Purchase_Name(String $purchase_name){this.$purchase_name = $purchase_name;}
 
@@ -65,4 +65,7 @@ public class PurchaseItem {
 
     public LocalDateTime get$Purchase_Date(){return this.$purchase_date;}
     public void set$Purchase_Date(LocalDateTime $purchase_date){this.$purchase_date = $purchase_date;}
+
+    public PurchaseList get$PurchaseList(){return this.$purchase_list;}
+    public void set$PurchaseList(PurchaseList $purchase_list){this.$purchase_list = $purchase_list;}
 }
