@@ -12,5 +12,5 @@ import com.projects.marketlist.model.PurchaseItem;
 @Repository 
 public interface PurchaseItemRepository extends JpaRepository <PurchaseItem, Long> {
     @Query ("SELECT p FROM PurchaseItem p WHERE p.purchase_list.id_list = : id_list")
-    List<PurchaseItem> findPurchaseItemFromId(@Param("id_list") int $id_list); 
+    List<PurchaseItem> $findPurchaseItemById(@Param("id_list") int $id_list); 
 }

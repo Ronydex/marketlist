@@ -9,5 +9,5 @@ import com.projects.marketlist.model.User;
 
 @Repository 
 public interface UserRepository extends JpaRepository<User,Long> {
-    Optional <User> findByEmail(String $email_user);
+    Optional <User> $findByEmail(String $email_user);
 }
